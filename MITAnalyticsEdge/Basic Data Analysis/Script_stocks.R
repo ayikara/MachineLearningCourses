@@ -1,3 +1,4 @@
+#Read Data from Input file
 IBM = read.csv("IBMStock.csv")
 str(IBM)
 GE = read.csv("GEStock.csv")

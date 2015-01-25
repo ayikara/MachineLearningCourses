@@ -1,0 +1,26 @@
+PredictCARTb
+          crypto nano pico synecho ultra
+  crypto       0   51    0       0     0
+  nano         0 5022    2      38  1287
+  pico         0    0 9634      39   757
+  synecho      0   17    2    9054     0
+  ultra        0  677 2171     130  7290
+
+
+predictRF
+          crypto  nano  pico synecho ultra
+  crypto      48     1     0       2     0
+  nano         1  5587     0       2   759
+  pico         0     0 10067      11   352
+  synecho      0     2     2    9066     3
+  ultra        0   351  1368       9  8540
+
+
+  MeanDecreaseGini
+fsc_small        2667.4759
+fsc_perp         2047.6874
+fsc_big           200.0078
+pe               8902.2919
+chl_big          4857.5680
+chl_small        8178.9732
+

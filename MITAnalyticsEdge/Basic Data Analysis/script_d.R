@@ -1,0 +1,51 @@
+getwd()
+chicagoC = read.csv("mvtWeek1.csv")
+str(chicagoC)
+ max(chicagoC[c("ID")])
+ which.max(chicagoC$ID)
+cArr = nrow(subset(chicagoC, Arrest ==TRUE))
+ cAll = nrow(subset(chicagoC,  LocationDescription =="ALLEY"))
+#DateConvert = chicagoC.Date(strptime(mvt$Date, "%m/%d/%y %H:%M"))
+
+summary(chicagoC)
+DateConvert = as.Date(strptime(chicagoC$Date, "%m/%d/%y %H:%M"))
+chicagoC$Month = months(DateConvert)
+chicagoC$Weekday = weekdays(DateConvert)
+chicagoC$Date = DateConvert
+table(chicagoC)
+attach(chicagoC)ls
+
+mytable <- table(Month)
+wtab <- table(Weekday)
+cm= min(wtab)
+wArst <-table(chicagoC$Month,chicagoC$Arrest)
+ apply(wArst,2,max)
+#wArst$perc <- c(wArst$TRUE/(wArst$FALSE+wArst$TRUE))
+wArst[,smmm := sum(TRUE, FALSE)]
+wArst$smmm =  sum(TRUE, FALSE)
+
+tapply(wArst$Arrest,chicagoC$Month,max,na.rm=TRUE)
+tapply(chicagoC$Month,chicagoC$Arrest,max,na.rm=TRUE)
+hist(chicagoC$Date, breaks=100)
+?boxplot
+boxplot(chicagoC$Date)
+boxplot(chicagoC$Arrest)
+boxplot(chicagoC$Date~chicagoC$Arrest)
+chicagoC$Year = year(DateConvert)
+arstYR <-table(chicagoC$Year,chicagoC$Arrest)
+summary(chicagoC)
+arstYR
+tapply(chicagoC$Year,chicagoC$Arrest,max,na.rm=TRUE)
+tapply(chicagoC$Year,chicagoC$Arrest,max,na.rm=TRUE)
+sort(table(chicagoC$LocationDescription))
+top5 =subset(chicagoC,LocationDescription = "STREET")
+top5a =subset(chicagoC,LocationDescription = "STREET" | " PARKING LOT/GARAGE(NON.RESID.)" |" ALLEY" |"GAS STATION" |"DRIVEWAY - RESIDENTIAL")
+
+tp1= subset(chicagoC,LocationDescription == "STREET")
+tp2= subset(chicagoC,LocationDescription == "PARKING LOT/GARAGE(NON.RESID.)")
+tp3= subset(chicagoC,LocationDescription == "ALLEY")
+tp4= subset(chicagoC,LocationDescription == "GAS STATION")
+tp5= subset(chicagoC,LocationDescription == "DRIVEWAY - RESIDENTIAL")
+tpf = rbind(tp1,tp2,tp3,tp4,tp5)
+wkday <- table(tp5$Weekday)
+wkdyGs <- table(tp4$Weekday)

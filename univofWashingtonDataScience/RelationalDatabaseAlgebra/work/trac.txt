@@ -1,0 +1,148 @@
+SQL Lite commands
+http://www.sqlite.org/cli.html
+C:\GitHub\datasci_course_materials\assignment2
+
+.open C:/GitHub/datasci_course_materials/assignment2/reuters.db
+frequency(docid, term, count)
+Relational Algebra
+http://www.databasteknik.se/webbkursen/relalg-lecture/
+
+select * from frequency
+s10398_txt_earn(frequency)
+SELECT count(*) FROM (
+SELECT * FROM frequency where docid ='10398_txt_earn'
+)x;
+
+
+Prob#2
+pterm(sdocid=10398_txt_earn and count=1(frequency))
+SELECT count(*) FROM (
+SELECT term from frequency where docid ='10398_txt_earn' and count =1
+)x;
+
+Problem#3
+pterm(sdocid=10398_txt_earn and count=1(frequency)) U pterm(sdocid=925_txt_trade and count=1(frequency))
+
+SELECT count(*) FROM (
+
+SELECT term FROM frequency WHERE docid ='10398_txt_earn' AND count = 1
+
+UNION
+
+SELECT term FROM frequency WHERE docid ='925_txt_trade' AND count = 1
+
+)x;
+
+Problem#4
+
+SELECT Count(*) FROM frequency WHERE term ='parliament';
+
+probelm#5
+frequency(docid, term, count)
+SELECT count(*) FROM (
+SELECT docid FROM frequency GROUP BY docid
+HAVING count (term) > 300
+)x;
+
+SELECT SUM(cnt)
+from (
+SELECT docid,count(term),sum(term) AS cnt FROM frequency GROUP BY docid
+HAVING count(term) > 300
+)x;
+
+
+12848_txt_trade|305
+
+SELECT count (*), sum (term) FROM frequency WHERE docid ='12848_txt_trade';
+
+SELECT SUM(CN),SUM(SM)
+from (
+SELECT docid,count(term) AS CN,sum(term) AS SM FROM frequency GROUP BY docid
+HAVING sum(term) > 300
+)
+X;
+
+SELECT COUNT(docid) FROM (
+SELECT docid  FROM frequency GROUP BY docid
+HAVING sum(term) > 300
+)X;
+
+
+SELECT * FROM frequency where docid ='12848_txt_trade'
+
+SELECT count(*) FROM (
+SELECT docid FROM frequency GROUP BY docid
+HAVING sum(term) > 300
+)X;   
+1652
+
+SELECT count(*) FROM (
+SELECT docid FROM frequency GROUP BY docid,term
+HAVING sum(term) > 300
+)X;
+7226
+
+SELECT docid, term FROM frequency GROUP BY docid,term  order by docid LIMIT 15;
+
+SELECT count(*) FROM (
+SELECT docid, term FROM frequency GROUP BY docid,term 
+)X;
+
+SELECT X.docid FROM (
+SELECT f.docid, f.term FROM frequency f GROUP BY f.docid,f.term 
+)
+
+X
+group by docid having count(docid) >300;
+
+11
+
+SELECT count(*) FROM (
+SELECT X.docid FROM (
+SELECT f.docid, f.term FROM frequency f GROUP BY f.docid,f.term 
+)
+
+X
+group by docid having sum(term) >300
+
+)Y;
+1652
+
+
+SELECT f.docid, f.term,sum(f.count) FROM frequency f GROUP BY f.docid,f.term 
+HAVING sum(f.count)>300;
+
+
+SELECT count(*) FROM (
+SELECT X.docid FROM (
+SELECT f.docid, sum(count) as cn FROM frequency f GROUP BY f.docid 
+)
+
+X
+where cn >300
+
+)Y;
+
+107
+SELECT count(*) FROM 
+(
+SELECT X.docid FROM
+(
+SELECT f.docid, f.term FROM frequency f
+WHERE f.term IN ('transactions', 'world')
+)
+X
+
+group by docid,term HAVING count(docid)>1
+)Y;
+
+SELECT f.docid FROM frequency f
+WHERE f.term IN ('transactions', 'world')
+group by docid
+HAVING Count(docid)>1;
+
+
+Matrix multiplication
+
+
+

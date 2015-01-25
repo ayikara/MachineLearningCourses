@@ -1,0 +1,58 @@
+cd\info\Courseera\ml\mlclass-ex7
+cd ~info\Courseera\ml\mlclass-ex7
+cd c:\info\Courseera\ml\mlclass-ex7
+
+
+
+sum( bsxfun(@eq, idx, unique(idx)') )'
+
+
+
+
+
+ accumarray(idx',idx)./unique(idx)'
+
+
+
+
+
+
+octave-3.2.4.exe:6> A=[10 20 30 40 50]
+A =
+
+   10   20   30   40   50
+
+octave-3.2.4.exe:7> idx =[1 2 1 3 2]
+idx =
+
+   1   2   1   3   2
+
+octave-3.2.4.exe:8> result = accumarray(idx',A)
+result =
+
+   40
+   70
+   40
+
+
+ accumarray(idx',h,[],@sum)
+
+ accumarray(idx',h,[],@sum)
+ h =[2,1;3,2;4,2;4,1;7,2]
+ g =[4,1;1,3;6,2;4,2;1,2]
+
+octave-3.2.4.exe:39> accumarray(idx',h(:,end),[;],@sum)
+ans =
+
+   3
+   4
+   1
+
+octave-3.2.4.exe:40> accumarray(idx',h(:,1),[;],@sum)
+ans =
+
+    6
+   10
+    4
+
+Result = [X Y] 
